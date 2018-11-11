@@ -4,3 +4,4 @@ export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const FETCH_CHANNELS = "FETCH_CHANNELS";
+export const CREATE_CHANNEL = "CREATE_CHANNEL";

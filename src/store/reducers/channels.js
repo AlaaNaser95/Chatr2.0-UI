@@ -11,6 +11,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         channels: action.payload
       };
+    case actionTypes.CREATE_CHANNEL:
+      return {
+        ...state,
+        channels: [action.payload].concat(state.channels)
+      };
     default:
       return state;
   }
