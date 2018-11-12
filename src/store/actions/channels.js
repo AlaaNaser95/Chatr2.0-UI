@@ -26,8 +26,35 @@ export const createChannel = form => {
       .then(channel =>
         dispatch({ type: actionTypes.CREATE_CHANNEL, payload: channel })
       )
-      .catch(error => err => {
+      .catch(err => {
         dispatch(setErrors(err.response.data));
       });
+  };
+};
+
+export const fetchMessages = channelId => {
+  return dispatch => {
+    instance
+      .get(`channels/${channelId}`)
+      .then(res => res.data)
+      .then(messages =>
+        dispatch({
+          type: actionTypes.FETCH_MESSAGES,
+          payload: messages
+        })
+      )
+      .catch(err => console.error(err));
+  };
+};
+
+export const sendMessage = (channelId, message) => {
+  return dispatch => {
+    instance
+      .post(`channels/${channelId}/send/`, message)
+      .then(res => res.data)
+      .then(() =>
+        dispatch({ type: actionTypes.SEND_MESSAGE, payload: message })
+      )
+      .catch(err => console.log(err.response));
   };
 };
