@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  channels: []
+  channels: [],
+  messages: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +16,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         channels: [action.payload].concat(state.channels)
+      };
+    case actionTypes.FETCH_MESSAGES:
+      return {
+        ...state,
+        messages: action.payload
+      };
+    case actionTypes.SEND_MESSAGE:
+      return {
+        ...state,
+        messages: state.messages.concat(action.payload)
       };
     default:
       return state;

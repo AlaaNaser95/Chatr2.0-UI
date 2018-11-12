@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions/index";
 import { Redirect } from "react-router-dom";
@@ -26,9 +26,6 @@ class CreateForm extends Component {
   }
 
   render() {
-    // const { username, password } = this.state;
-
-    const type = this.props.match.url.substring(1);
     if (!this.props.user) {
       return <Redirect to="/welcome" />;
     }
@@ -38,26 +35,28 @@ class CreateForm extends Component {
           <h5 className="card-title mb-4">Create Channel</h5>
           <form onSubmit={this.submitHandler} noValidate>
             <div className="form-group">
+              <div>Channel Name</div>
               <input
                 className="form-control"
                 type="text"
-                placeholder="Channel name"
+                placeholder="example: My channel"
                 name="name"
                 required
                 onChange={this.changeHandler}
               />
             </div>
             <div className="form-group">
+              <div>Image URL</div>
               <input
                 className="form-control"
                 type="text"
-                placeholder=""
+                placeholder="https://image.com"
                 name="url"
                 //required
                 onChange={this.changeHandler}
               />
             </div>
-            <input className="btn btn-primary" type="submit" value="create" />
+            <input className="btn btn-primary" type="submit" value="Create" />
           </form>
         </div>
       </div>

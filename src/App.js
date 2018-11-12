@@ -8,6 +8,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Welcome from "./components/Welcome";
 import RegistrationForm from "./components/RegistrationForm";
 import SuperSecretPage from "./components/SuperSecretPage";
+import ChannelMessages from "./components/ChannelMessages";
 import * as actionCreators from "./store/actions/index";
 import { connect } from "react-redux";
 import CreateForm from "./components/CreateForm";
@@ -20,7 +21,8 @@ class App extends Component {
           <Route path="/welcome" component={Welcome} />
           <Route path="/(login|signup)" component={RegistrationForm} />
           <PrivateRoute path="/private" component={SuperSecretPage} />
-          <Route path="/createChannel" component={CreateForm} />
+          <PrivateRoute path="/createChannel" component={CreateForm} />
+          <PrivateRoute path="/channels/:name/" component={ChannelMessages} />
           <Redirect to="/welcome" />
         </Switch>
         <Footer />
