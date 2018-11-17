@@ -18,14 +18,15 @@ export const fetchChannels = () => {
   };
 };
 
-export const createChannel = form => {
+export const createChannel = (form, history) => {
   return dispatch => {
     instance
       .post("channels/create/", form)
       .then(res => res.data)
-      .then(channel =>
-        dispatch({ type: actionTypes.CREATE_CHANNEL, payload: channel })
-      )
+      .then(channel => {
+        dispatch({ type: actionTypes.CREATE_CHANNEL, payload: channel });
+        history.push(`/channels/${form.name}`);
+      })
       .catch(err => {
         dispatch(setErrors(err.response.data));
       });

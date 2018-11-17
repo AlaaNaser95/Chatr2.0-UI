@@ -22,7 +22,7 @@ class CreateForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-    this.props.createChannel(this.state);
+    this.props.createChannel(this.state, this.props.history);
   }
 
   render() {
@@ -69,7 +69,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => {
   return {
-    createChannel: form => dispatch(actionCreators.createChannel(form)),
+    createChannel: (form, history) =>
+      dispatch(actionCreators.createChannel(form, history)),
     setErrors: () => dispatch(actionCreators.setErrors())
   };
 };
