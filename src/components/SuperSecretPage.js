@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class SuperSecretPage extends Component {
   render() {
     return (
-      <div>
-        <h1>this page has all the secrets</h1>
-        <p>now that you're logged in you can see this page</p>
+      <div className="container text-center my-auto z-1">
+        <h1>Enjoy chatting with your friends</h1>
+        <p>Select your channel and just chat!!</p>
       </div>
     );
   }

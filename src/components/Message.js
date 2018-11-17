@@ -5,9 +5,9 @@ class Message extends Component {
     return (
       <div className="card w-50 mb-4">
         <div className="card-body">
-          <h5 className="card-title">{this.props.aMessage.username}</h5>
+          <h5 className="card-title">{this.props.aMessage.username}:</h5>
           <p className="card-text">{this.props.aMessage.message}</p>
-          <p className="card-text">{this.props.aMessage.timestamp}</p>
+          {/* <p className="card-text">{this.props.aMessage.timestamp}</p> */}
         </div>
       </div>
     );

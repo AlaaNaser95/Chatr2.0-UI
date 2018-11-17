@@ -19,7 +19,8 @@ class AuthButton extends Component {
       buttons = (
         <li className="nav-item" onClick={() => this.props.logout()}>
           <span className="nav-link">
-            <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+            <FontAwesomeIcon icon={faSignOutAlt} />
+            {`Logout ${this.props.user.username}`}
           </span>
         </li>
       );

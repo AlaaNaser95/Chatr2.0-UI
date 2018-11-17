@@ -51,7 +51,7 @@ class CreateForm extends Component {
                 className="form-control"
                 type="text"
                 placeholder="https://image.com"
-                name="url"
+                name="image_url"
                 //required
                 onChange={this.changeHandler}
               />
